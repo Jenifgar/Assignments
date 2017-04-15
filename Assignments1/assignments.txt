@@ -4,12 +4,30 @@
 --and the other one with the name "test_purposes?" with 500 Mb and 1 datafile. (0.5)
 
 
+--TABLESPACE VEHICLES_FLEET
+create tablespace vehicles_fleet datafile
+'vehicles_fleet1' SIZE 512M,
+'vehicles_fleet2' SIZE 512M;
+
+
+--TABLESPACE TEST_PURPOSES
+create tablespace test_purposes datafile
+'test_purposes​1' SIZE 500M;
 
 
 ---------------------------(2)------------------------------
 --Create an Undo tablespace with 5Mb? of space and 1 datafile (0.5)
 
 
+CREATE UNDO TABLESPACE tbs_undo DATAFILE 
+'tbs_undo' SIZE 5M;
+
+
+---------------------------(3)------------------------------
+Set the undo tablespace to be used in the system (0.5)
+
+
+ALTER SYSTEM set UNDO_TABLESPACE = tbs_undo;
 
 
 ---------------------------(4)------------------------------
