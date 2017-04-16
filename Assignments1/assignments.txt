@@ -1,4 +1,4 @@
-
+﻿
 ---------------------------(1)------------------------------
 --Create 2 Tablespaces: one with 1 Gb and 2 datafiles, tablespace should be named "vehicles_fleet?"
 --and the other one with the name "test_purposes?" with 500 Mb and 1 datafile. (0.5)
@@ -68,7 +68,12 @@ ALTER SYSTEM set UNDO_TABLESPACE = tbs_undo;
 ---------------------------(7)------------------------------   
 --Create 1 role with the name "without_privileges?" and revoke ALL PRIVILEGES (0.5)
 
+--Modificación del punto 7
+CREATE ROLE without_privileges;
 
+GRANT all PRIVILEGES TO without_privileges;
+
+REVOKE ALL PRIVILEGES FROM without_privileges;
 
 ---------------------------(8)------------------------------   
 --Create 4 users, assign them the tablespace "vehicles_fleet?"; profiles created should be used for the
